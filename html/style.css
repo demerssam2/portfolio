@@ -1,0 +1,228 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Outfit', sans-serif;
+	background-color: #1a1c2b;
+	color: #eee;
+	line-height: 1.6;
+	overflow-x: hidden;
+	background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 0);
+	background-size: 18px 18px;
+}
+
+.hero {
+	position: relative;
+	text-align: center;
+	padding: 140px 20px 100px;
+	overflow: hidden;
+	z-index: 1;
+	background:
+	radial-gradient(circle at top center, rgba(100, 140, 255, 0.2), transparent 60%),
+	radial-gradient(circle at 80% 120%, rgba(0, 255, 200, 0.15), transparent 60%),
+	radial-gradient(circle at 20% 80%, rgba(255, 100, 220, 0.12), transparent 60%),
+	#1a1c2b;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	animation: backgroundShift 18s ease-in-out infinite;
+}
+
+.hero::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	background: linear-gradient(to bottom, rgba(255, 180, 240, 0.05), transparent 80%);
+	pointer-events: none;
+}
+
+.container {
+	width: 90%;
+	max-width: 1200px;
+	margin: auto;
+}
+
+.hero-title {
+	font-size: 3.2rem;
+	font-weight: 800;
+	color: white;
+	margin-bottom: 20px;
+}
+
+@media (max-width: 500px) {
+	.hero-title {
+		font-size: 2rem;
+	}
+}
+
+.float {
+	animation: float 6s ease-in-out infinite;
+}
+
+.hero-line {
+	display: inline-block;
+	font-size: inherit;
+}
+
+.rotating-word {
+	display: inline-block;
+	transition: opacity 0.4s ease;
+	font-weight: 700;
+	white-space: nowrap;
+	font-size: 1em;
+	text-align: center;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+	.rotating-word {
+		text-align: left;
+	}
+}
+
+@media (min-width: 1100px) {
+	.rotating-word {
+		text-align: left;
+	}
+}
+
+.gradient-text {
+	background: linear-gradient(135deg, #00feba, #5b5fef);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+	font-size: 1.2rem;
+	color: #aaa;
+	max-width: 600px;
+	margin: 0 auto 30px;
+}
+
+.fade-in {
+	opacity: 0;
+	animation: fadeIn ease 1.2s forwards;
+	animation-delay: 0.4s;
+}
+
+.btn {
+	display: inline-block;
+	padding: 14px 36px;
+	background: linear-gradient(135deg, #00feba, #5b5fef);
+	color: white;
+	border-radius: 50px;
+	font-weight: 600;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.btn:hover {
+	transform: scale(1.05);
+	opacity: 0.9;
+}
+
+.section {
+	padding: 100px 20px;
+}
+
+.section-title {
+	font-size: 2.4rem;
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+.example-section-title {
+	font-size: 2.4rem;
+	text-align: center;
+}
+
+.animate {
+	opacity: 0;
+	transform: translateY(40px);
+	transition: all 0.8s ease-out;
+}
+
+.animate.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 40px;
+}
+
+.card {
+	padding: 30px;
+	border-radius: 16px;
+	transition: transform 0.3s ease;
+}
+
+.card:hover {
+	transform: translateY(-6px);
+}
+
+.glass {
+	background: rgba(255, 255, 255, 0.04);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	backdrop-filter: blur(12px);
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.dark {
+	background-color: #1a1d25;
+	background-image: repeating-linear-gradient(
+		45deg,
+		rgba(255,255,255,0.01) 0px,
+		rgba(255,255,255,0.01) 1px,
+		transparent 1px,
+		transparent 12px
+	);
+}
+
+.portfolio-item {
+	background: linear-gradient(135deg, #5b5fef, #00feba);
+	height: 200px;
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 600;
+	font-size: 1.3rem;
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+	padding: 20px;
+}
+
+a.portfolio-item:hover,
+a.portfolio-item:focus {
+	transform: scale(1.03);
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+a.portfolio-item:active {
+	transform: scale(0.98);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes float {
+	0%, 100% {transform: translateY(0);}
+	50% {transform: translateY(-8px);}
+}
+
+@keyframes fadeIn {
+	to  {opacity: 1;}
+}
+
+@keyframes backgroundShift {
+	0% {background-position: center top, 80% 120%;}
+	50% {background-position: center 105%, 82% 118%;}
+	100% {background-position: center top, 80% 120%;}
+}
